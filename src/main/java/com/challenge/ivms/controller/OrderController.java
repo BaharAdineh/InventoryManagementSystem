@@ -1,8 +1,8 @@
 package com.challenge.ivms.controller;
 
 
-import com.challenge.ivms.dto.OrderRequest;
-import com.challenge.ivms.dto.OrderResponse;
+import com.challenge.ivms.model.OrderRequest;
+import com.challenge.ivms.model.OrderResponse;
 import com.challenge.ivms.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
