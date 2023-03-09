@@ -1,36 +1,20 @@
 package com.challenge.ivms.service;
 
 
-import java.util.List;
-import com.challenge.ivms.model.Order;
-import com.challenge.ivms.repository.OrderRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+
+import com.challenge.ivms.model.OrderRequest;
+import com.challenge.ivms.model.OrderResponse;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class OrderService {
-
-    @Autowired
-    private OrderRepository orderRepository;
-
-    public List<Order> getAllOrders() {
-        return orderRepository.findAll();
-    }
-
-    public Order getOrderById(Long id) {
-        return orderRepository.findById(id).orElse(null);
-    }
-
-    public List<Order> getOrdersByUserId(Long userId) {
-        return orderRepository.findByUserId(userId);
-    }
-
-    public Order saveOrder(Order order) {
-        return orderRepository.save(order);
-    }
-
-    public void deleteOrderById(Long id) {
-        orderRepository.deleteById(id);
-    }
+public interface OrderService {
+    OrderResponse createOrder(OrderRequest orderRequest);
+    List<OrderResponse> getAllOrders();
+    OrderResponse getOrderById(Long id);
+    OrderResponse updateOrder(Long id, OrderRequest orderRequest);
+    void deleteOrder(Long id);
 }
+
 
