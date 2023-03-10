@@ -10,11 +10,17 @@ import java.util.List;
 
 @Service
 public interface OrderService {
+
     OrderResponse createOrder(OrderRequest orderRequest);
+
     List<OrderResponse> getAllOrders();
+
     OrderResponse getOrderById(Long id);
+
     OrderResponse updateOrder(Long id, OrderRequest orderRequest);
+
     void deleteOrder(Long id);
+
 }
 
 

@@ -12,14 +12,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.challenge.ivms.model.User;
-import com.challenge.ivms.service.UserService;
-import com.challenge.ivms.validator.UserValidator;
+import com.challenge.ivms.service.UserServiceImpl;
 
 @Controller
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @Autowired
     private UserValidator userValidator;
@@ -84,5 +83,6 @@ public class UserController {
         userService.deleteUser(id);
         return "redirect:/users";
     }
-}
 
+
+}

@@ -8,8 +8,9 @@ import java.util.List;
 
 @Data
 public class OrderRequest {
+
     private Long userId;
-    private Date orderDate;
     private List<OrderItem> items;
 }
+
 
