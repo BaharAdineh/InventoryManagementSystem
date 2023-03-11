@@ -1,10 +1,12 @@
 package com.challenge.ivms.controller;
 
 import com.challenge.ivms.model.User;
-import jakarta.validation.Validator;
+import com.challenge.ivms.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
+import org.springframework.validation.Validator;
 
 @Component
 public class UserValidator implements Validator {
@@ -13,6 +15,9 @@ public class UserValidator implements Validator {
     private static final int MAX_USERNAME_LENGTH = 20;
     private static final int MIN_PASSWORD_LENGTH = 8;
     private static final int MAX_PASSWORD_LENGTH = 30;
+
+    @Autowired
+    private UserService userService;
 
     @Override
     public boolean supports(Class<?> clazz) {
@@ -40,3 +45,4 @@ public class UserValidator implements Validator {
         }
     }
 }
+

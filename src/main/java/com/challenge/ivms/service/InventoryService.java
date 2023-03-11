@@ -2,6 +2,8 @@ package com.challenge.ivms.service;
 
 
 import java.util.List;
+import java.util.Optional;
+
 import com.challenge.ivms.model.Inventory;
 import com.challenge.ivms.repository.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +20,11 @@ public class InventoryService {
     }
 
     public Inventory getInventoryById(Long id) {
-        return inventoryRepository.findById(id).orElse(null);
+        Optional<Inventory> inventory = inventoryRepository.findById(id);
+        if (inventory.isPresent()) {
+            return inventory.get();
+        }
+        throw new IllegalArgumentException("Invalid inventory id: " + id);
     }
 
     public Inventory saveInventory(Inventory inventory) {
@@ -57,5 +63,24 @@ public class InventoryService {
         inventory.setQuantity(updatedQuantity);
         inventoryRepository.save(inventory);
     }
+
+
+    public List<Inventory> getAllInventories() {
+        return inventoryRepository.findAll();
+    }
+
+
+    public void addInventory(Inventory inventory) {
+        inventoryRepository.save(inventory);
+    }
+
+    public void updateInventory(Inventory inventory) {
+        inventoryRepository.save(inventory);
+    }
+
+    public void deleteInventory(Long id) {
+        inventoryRepository.deleteById(id);
+    }
 }
+
 
