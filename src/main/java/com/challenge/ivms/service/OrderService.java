@@ -1,26 +1,42 @@
 package com.challenge.ivms.service;
 
-
-
-import com.challenge.ivms.model.OrderRequest;
-import com.challenge.ivms.model.OrderResponse;
+import com.challenge.ivms.model.Order;
+import com.challenge.ivms.model.OrderItem;
+import com.challenge.ivms.model.Product;
+import com.challenge.ivms.model.Invoice;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public interface OrderService {
+public class OrderService {
 
-    OrderResponse createOrder(OrderRequest orderRequest);
+    @Autowired
+    private ProductService productService;
 
-    List<OrderResponse> getAllOrders();
+    @Autowired
+    private InvoiceService invoiceService;
 
-    OrderResponse getOrderById(Long id);
+    public void processOrder(Order order) {
+        List<OrderItem> orderItems = order.getOrderItems();
 
-    OrderResponse updateOrder(Long id, OrderRequest orderRequest);
+        for (OrderItem orderItem : orderItems) {
+            Product product = productService.getProductById(orderItem.getProductId());
+            int availableQuantity = product.getQuantity();
 
-    void deleteOrder(Long id);
+            if (availableQuantity >= orderItem.getQuantity()) {
+                int updatedQuantity = availableQuantity - orderItem.getQuantity();
+                product.setQuantity(updatedQuantity);
+                productService.updateProduct(product.getId(), product);
+            } else {
+                // Notify the customer and suggest alternative products
+            }
+        }
+
+        Invoice invoice = invoiceService.generateInvoice(order);
+        // Send the invoice to the customer
+    }
 
 }
-
 
