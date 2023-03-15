@@ -1,7 +1,15 @@
 package com.challenge.ivms.service;
+import com.challenge.ivms.model.*;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class InvoiceService {
+
+    private ProductService productService;
 
     public Invoice generateInvoice(Order order) {
         List<OrderItem> orderItems = order.getOrderItems();
