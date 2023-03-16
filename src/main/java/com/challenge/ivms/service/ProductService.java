@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -22,8 +23,14 @@ public class ProductService {
         return productRepository.findAll();
     }
 
-    public Product getProductById(String id) {
-        return productRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Product not found with id " + id));
+
+    public Product getProductById(String productId) {
+        Optional<Product> productOptional = productRepository.findById(productId);
+        if (productOptional.isPresent()) {
+            return productOptional.get();
+        } else {
+            throw new ResourceNotFoundException("Product not found with ID: " + productId);
+        }
     }
 
     public Product updateProduct(String id, Product product) {

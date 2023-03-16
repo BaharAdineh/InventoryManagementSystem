@@ -1,49 +1,119 @@
 package com.challenge.ivms.controller;
 
 
-import com.challenge.ivms.model.OrderRequest;
-import com.challenge.ivms.model.OrderResponse;
+import com.challenge.ivms.errorHandling.ResourceNotFoundException;
+import com.challenge.ivms.model.*;
+import com.challenge.ivms.repository.OrderRepository;
+import com.challenge.ivms.service.InvoiceService;
+import com.challenge.ivms.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-
-@RestController
-@RequestMapping("/orders")
-public class OrderController {
+@Service
+public class OrderService {
 
     @Autowired
-    private OrderService orderService;
+    private ProductService productService;
 
-    @PostMapping
-    public ResponseEntity<OrderResponse> createOrder(@RequestBody OrderRequest orderRequest) {
-        OrderResponse orderResponse = orderService.createOrder(orderRequest);
-        return new ResponseEntity<>(orderResponse, HttpStatus.CREATED);
+    @Autowired
+    private InvoiceService invoiceService;
+
+    @Autowired
+    private OrderRepository orderRepository;
+
+    public OrderResponse createOrder(OrderItemRequest orderRequest) {
+        Order order = new Order();
+        List<OrderItem> orderItems = new ArrayList<>();
+
+        for (OrderItemRequest orderItemRequest : orderRequest.getOrderItems()) {
+            Product product = productService.getProductById(orderItemRequest.getProductId());
+            int availableQuantity = product.getQuantity();
+
+            if (availableQuantity >= orderItemRequest.getQuantity()) {
+                int updatedQuantity = availableQuantity - orderItemRequest.getQuantity();
+                product.setQuantity(updatedQuantity);
+                productService.updateProduct(product.getId(), product);
+
+                OrderItem orderItem = new OrderItem();
+                orderItem.setProductId(product.getId());
+                orderItem.setQuantity(orderItemRequest.getQuantity());
+                orderItem.setPrice(product.getPrice());
+                orderItems.add(orderItem);
+            } else {
+                // Notify the customer and suggest alternative products
+            }
+        }
+
+        order.setOrderItems(orderItems);
+        Order savedOrder = orderRepository.save(order);
+
+        Invoice invoice = invoiceService.generateInvoice(savedOrder);
+        // Send the invoice to the customer
+
+        return new OrderResponse(savedOrder.getId(), savedOrder.getOrderItems());
     }
 
-    @GetMapping
-    public ResponseEntity<List<OrderResponse>> getAllOrders() {
-        List<OrderResponse> orderResponses = orderService.getAllOrders();
-        return new ResponseEntity<>(orderResponses, HttpStatus.OK);
+    public List<OrderResponse> getAllOrders() {
+        List<Order> orders = orderRepository.findAll();
+        List<OrderResponse> orderResponses = new ArrayList<>();
+
+        for (Order order : orders) {
+            OrderResponse orderResponse = new OrderResponse(order.getId(), order.getOrderItems());
+            orderResponses.add(orderResponse);
+        }
+
+        return orderResponses;
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<OrderResponse> getOrderById(@PathVariable Long id) {
-        OrderResponse orderResponse = orderService.getOrderById(id);
-        return new ResponseEntity<>(orderResponse, HttpStatus.OK);
+    public OrderResponse getOrderById(Long id) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Order not found with id " + id));
+
+        OrderResponse orderResponse = new OrderResponse(order.getId(), order.getOrderItems());
+        return orderResponse;
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<OrderResponse> updateOrder(@PathVariable Long id, @RequestBody OrderRequest orderRequest) {
-        OrderResponse orderResponse = orderService.updateOrder(id, orderRequest);
-        return new ResponseEntity<>(orderResponse, HttpStatus.OK);
+    public OrderResponse updateOrder(Long id, OrderItemRequest orderRequest) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Order not found with id " + id));
+
+        List<OrderItem> orderItems = new ArrayList<>();
+
+        for (OrderItemRequest orderItemRequest : orderRequest.getOrderItems()) {
+            Product product = productService.getProductById(orderItemRequest.getProductId());
+            int availableQuantity = product.getQuantity();
+
+            if (availableQuantity >= orderItemRequest.getQuantity()) {
+                int updatedQuantity = availableQuantity - orderItemRequest.getQuantity();
+                product.setQuantity(updatedQuantity);
+                productService.updateProduct(product.getId(), product);
+
+                OrderItem orderItem = new OrderItem();
+                orderItem.setProductId(product.getId());
+                orderItem.setQuantity(orderItemRequest.getQuantity());
+                orderItem.setPrice(product.getPrice());
+                orderItems.add(orderItem);
+            } else {
+                // Notify the customer and suggest alternative products
+            }
+        }
+
+        order.setOrderItems(orderItems);
+        Order savedOrder = orderRepository.save(order);
+
+        Invoice invoice = invoiceService.generateInvoice(savedOrder);
+        // Send the invoice to the customer
+
+        return new OrderResponse(savedOrder.getId(), savedOrder.getOrderItems());
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteOrder(@PathVariable Long id) {
-        orderService.deleteOrder(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    public void deleteOrder(Long id) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Order not found with id " + id));
+
+        orderRepository.delete(order);
     }
+
 }

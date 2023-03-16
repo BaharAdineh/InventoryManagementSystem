@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
 public class OrderService {
 
@@ -19,10 +20,10 @@ public class OrderService {
     private InvoiceService invoiceService;
 
     public void processOrder(Order order) {
-        List<OrderItem> orderItems = order.getOrderItems();
+        List<OrderItem> orderItems = order.getItems();
 
         for (OrderItem orderItem : orderItems) {
-            Product product = productService.getProductById(orderItem.getProductId());
+            Product product = productService.getProductById(orderItem.getItemId());
             int availableQuantity = product.getQuantity();
 
             if (availableQuantity >= orderItem.getQuantity()) {
@@ -39,4 +40,3 @@ public class OrderService {
     }
 
 }
-
