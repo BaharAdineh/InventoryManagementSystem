@@ -20,7 +20,7 @@ public class OrderService {
     private InvoiceService invoiceService;
 
     public void processOrder(Order order) {
-        List<OrderItem> orderItems = order.getItems();
+        List<OrderItem> orderItems = order.getOrderItems();
 
         for (OrderItem orderItem : orderItems) {
             Product product = productService.getProductById(orderItem.getItemId());

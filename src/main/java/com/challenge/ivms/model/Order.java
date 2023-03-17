@@ -27,4 +27,6 @@ public class Order {
 
     private Double orderTotal;
 
+    private String address;
+
 }
