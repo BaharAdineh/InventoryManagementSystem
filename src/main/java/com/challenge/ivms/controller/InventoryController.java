@@ -4,10 +4,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import com.challenge.ivms.model.Inventory;
 import com.challenge.ivms.service.InventoryService;
 
@@ -37,13 +35,14 @@ public class InventoryController {
     }
 
     @PostMapping("/inventory/new")
-    public String addInventory(@RequestParam("name") String name,
-                               @RequestParam("description") String description,
-                               @RequestParam("quantity") int quantity) {
-        Inventory inventory = new Inventory(name, description, quantity);
+    public String addInventory(@ModelAttribute("inventory") Inventory inventory, BindingResult result) {
+        if (result.hasErrors()) {
+            return "inventory-form";
+        }
         inventoryService.addInventory(inventory);
         return "redirect:/";
     }
+
 
     @GetMapping("/inventory/{id}/edit")
     public String showEditInventoryForm(@PathVariable Long id, Model model) {

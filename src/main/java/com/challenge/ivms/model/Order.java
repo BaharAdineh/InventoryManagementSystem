@@ -18,15 +18,10 @@ public class Order {
 
     @Id
     private String id;
-
     private String customerName;
-
     private List<OrderItem> orderItems;
-
     private Date orderDate;
-
     private Double orderTotal;
-
     private String address;
-
+    private Long userId;
 }

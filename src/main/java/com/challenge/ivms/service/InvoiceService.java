@@ -18,7 +18,7 @@ public class InvoiceService {
         List<InvoiceItem> invoiceItems = new ArrayList<>();
 
         for (OrderItem orderItem : orderItems) {
-            Product product = productService.getProductById(orderItem.getProductId());
+            Product product = productService.getProductById(orderItem.getItemId());
             double itemPrice = product.getPrice();
             double itemTotal = itemPrice * orderItem.getQuantity();
             totalAmount += itemTotal;
