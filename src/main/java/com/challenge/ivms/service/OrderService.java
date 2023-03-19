@@ -8,44 +8,30 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class OrderService {
+    private final OrderRepository orderRepository;
+    private final ProductService productService;
+    private final InvoiceService invoiceService;
 
     @Autowired
-    private ProductService productService;
-
-    @Autowired
-    private InvoiceService invoiceService;
-
-    @Autowired
-    private OrderRepository orderRepository; // added reference to order repository
-
-    public void processOrder(Order order) {
-        List<OrderItem> orderItems = order.getOrderItems();
-
-        for (OrderItem orderItem : orderItems) {
-            Product product = productService.getProductById(orderItem.getItemId());
-            int availableQuantity = product.getQuantity();
-
-            if (availableQuantity >= orderItem.getQuantity()) {
-                int updatedQuantity = availableQuantity - orderItem.getQuantity();
-                product.setQuantity(updatedQuantity);
-                productService.updateProduct(product.getId(), product);
-            } else {
-                // Notify the customer and suggest alternative products
-            }
-        }
-
-        Invoice invoice = invoiceService.generateInvoice(order);
-        // Send the invoice to the customer
+    public OrderService(OrderRepository orderRepository, ProductService productService, InvoiceService invoiceService) {
+        this.orderRepository = orderRepository;
+        this.productService = productService;
+        this.invoiceService = invoiceService;
     }
 
     public OrderResponse createOrder(OrderItemRequest orderRequest) {
         Order order = new Order();
         List<OrderItem> orderItems = new ArrayList<>();
 
-        for (OrderItemRequest orderItemRequest : orderRequest.getOrderItems()) {
+        for (OrderItemRequest.OrderItemRequestItem orderItemRequest : orderRequest.getOrderItems()) {
             Product product = productService.getProductById(orderItemRequest.getProductId());
             int availableQuantity = product.getQuantity();
 
@@ -64,7 +50,7 @@ public class OrderService {
             }
         }
 
-        order.setUserId(orderRequest.getUserId()); // added setting of userId in order object
+        order.setUserId(orderRequest.getUserId());
         order.setOrderItems(orderItems);
         Order savedOrder = orderRepository.save(order);
 
@@ -73,5 +59,4 @@ public class OrderService {
 
         return new OrderResponse(savedOrder.getId(), savedOrder.getUserId(), savedOrder.getOrderItems());
     }
-
 }

@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -17,7 +16,7 @@ import java.util.List;
 public class Order {
 
     @Id
-    private String id;
+    private Long id;
     private String customerName;
     private List<OrderItem> orderItems;
     private Date orderDate;

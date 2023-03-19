@@ -7,17 +7,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderItemRequest {
 
-    @NotNull
-    private String productId;
+    private Long userId;
+    private List<OrderItemRequestItem> orderItems;
 
-    @NotNull
-    @Min(1)
-    private Integer quantity;
-
+    @Data
+    @NoArgsConstructor
+    public static class OrderItemRequestItem {
+        private String productId;
+        private int quantity;
+    }
 
 }

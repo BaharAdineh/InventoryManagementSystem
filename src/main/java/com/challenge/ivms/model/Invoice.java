@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Invoice {
 
-    private String orderId;
+    private Long orderId;
     private String customerName;
     private String address;
     private double totalAmount;
