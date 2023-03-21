@@ -1,39 +1,42 @@
 package com.challenge.ivms.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.ServletSecurity;
+import jakarta.servlet.annotation.WebInitParam;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-@Configuration
-@EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+import java.io.IOException;
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+@WebServlet(name = "SecurityConfig", urlPatterns = {"/secure"}, initParams = {
+        @WebInitParam(name = "username", value = "admin"),
+        @WebInitParam(name = "password", value = "secret")})
+@ServletSecurity
+public class SecurityConfig extends HttpServlet {
+
+    private String username;
+    private String password;
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
-                .antMatchers("/login", "/static/**").permitAll()
-                .antMatchers("/**").hasRole("USER")
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .defaultSuccessUrl("/")
-                .permitAll()
-                .and()
-                .logout()
-                .permitAll();
+    public void init() throws ServletException {
+        super.init();
+        username = getInitParameter("username");
+        password = getInitParameter("password");
     }
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
+    @Override
+    protected void service(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String user = request.getParameter("username");
+        String pass = request.getParameter("password");
+
+        if (username.equals(user) && password.equals(pass)) {
+            response.setContentType("text/html");
+            response.getWriter().println("<html><body><h1>Hello, secure world!</h1></body></html>");
+        } else {
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+        }
     }
 }
