@@ -1,0 +1,8 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/ivmsDB
+      database: ivmsDB
+      host: localhost
+  profiles:
+    active: dev
