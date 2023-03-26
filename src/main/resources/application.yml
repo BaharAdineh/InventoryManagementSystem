@@ -6,3 +6,7 @@ spring:
       host: localhost
   profiles:
     active: dev
+  security:
+    user:
+      name: admin
+      password: admin

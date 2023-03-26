@@ -14,7 +14,7 @@ public class Inventory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long itemId;
 
     @NotBlank(message = "Name is mandatory")
     private String name;
