@@ -23,7 +23,7 @@ public class AppConfig extends AbstractMongoClientConfiguration {
 
     @Value("${spring.data.mongodb.uri}")
     private String mongoUri;
-
+    //to do: add mongo try catch
     @Override
     public MongoClient mongoClient() {
         return MongoClients.create(mongoUri);
