@@ -1,5 +1,6 @@
 package com.challenge.ivms.config;
 
+import com.mongodb.MongoSocketOpenException;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,10 +24,17 @@ public class AppConfig extends AbstractMongoClientConfiguration {
 
     @Value("${spring.data.mongodb.uri}")
     private String mongoUri;
-    //to do: add mongo try catch block
+
     @Override
     public MongoClient mongoClient() {
-        return MongoClients.create(mongoUri);
+        MongoClient mongoClient = null;
+        try {
+            mongoClient = MongoClients.create(mongoUri);
+        } catch (MongoSocketOpenException e) {
+            // Handle the exception
+            System.out.println("Exception opening socket: " + e.getMessage());
+        }
+        return mongoClient;
     }
 
     @Override
