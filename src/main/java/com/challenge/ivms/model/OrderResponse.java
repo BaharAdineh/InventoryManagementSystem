@@ -1,7 +1,6 @@
 package com.challenge.ivms.model;
 
 
-import java.util.Date;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
