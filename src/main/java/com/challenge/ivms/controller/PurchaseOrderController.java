@@ -17,19 +17,19 @@ public class PurchaseOrderController {
 
     @PostMapping("")
     public ResponseEntity<PurchaseOrder> createPurchaseOrder(@RequestBody PurchaseOrder purchaseOrder) {
-        PurchaseOrder savedPurchaseOrder = purchaseOrderService.savePurchaseOrder(purchaseOrder);
+        final PurchaseOrder savedPurchaseOrder = purchaseOrderService.savePurchaseOrder(purchaseOrder);
         return new ResponseEntity<>(savedPurchaseOrder, HttpStatus.CREATED);
     }
 
     @GetMapping("")
     public ResponseEntity<List<PurchaseOrder>> getAllPurchaseOrders() {
-        List<PurchaseOrder> purchaseOrders = purchaseOrderService.getAllPurchaseOrders();
+        final List<PurchaseOrder> purchaseOrders = purchaseOrderService.getAllPurchaseOrders();
         return new ResponseEntity<>(purchaseOrders, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<PurchaseOrder> getPurchaseOrderById(@PathVariable String id) {
-        PurchaseOrder purchaseOrder = purchaseOrderService.getPurchaseOrderById(id);
+        final PurchaseOrder purchaseOrder = purchaseOrderService.getPurchaseOrderById(id);
         return new ResponseEntity<>(purchaseOrder, HttpStatus.OK);
     }
 }

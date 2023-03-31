@@ -24,7 +24,7 @@ public class ItemController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Item> getItemById(@PathVariable String id) {
-        Optional<Item> item = itemRepository.findById(id);
+        final Optional<Item> item = itemRepository.findById(id);
         if (item.isPresent()) {
             return new ResponseEntity<>(item.get(), HttpStatus.OK);
         } else {
@@ -34,15 +34,15 @@ public class ItemController {
 
     @PostMapping
     public ResponseEntity<Item> addItem(@RequestBody Item item) {
-        Item savedItem = itemRepository.save(item);
+        final Item savedItem = itemRepository.save(item);
         return new ResponseEntity<>(savedItem, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Item> updateItem(@PathVariable String id, @RequestBody Item item) {
-        Optional<Item> existingItem = itemRepository.findById(id);
+        final Optional<Item> existingItem = itemRepository.findById(id);
         if (existingItem.isPresent()) {
-            Item updatedItem = existingItem.get();
+            final Item updatedItem = existingItem.get();
             updatedItem.setName(item.getName());
             updatedItem.setQuantity(item.getQuantity());
             updatedItem.setPrice(item.getPrice());

@@ -46,21 +46,21 @@ public class UserController {
 
     @GetMapping("/users")
     public String listUsers(Model model) {
-        List<User> users = userService.getAllUsers();
+        final List<User> users = userService.getAllUsers();
         model.addAttribute("users", users);
         return "user_list";
     }
 
     @GetMapping("/users/{id}")
     public String viewUser(@PathVariable Long id, Model model) {
-        User user = userService.getUserById(id);
+        final User user = userService.getUserById(id);
         model.addAttribute("user", user);
         return "view_user";
     }
 
     @GetMapping("/users/{id}/edit")
     public String showEditUserForm(@PathVariable Long id, Model model) {
-        User user = userService.getUserById(id);
+        final User user = userService.getUserById(id);
         model.addAttribute("user", user);
         return "edit_user";
     }

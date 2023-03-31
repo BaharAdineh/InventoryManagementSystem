@@ -17,14 +17,14 @@ public class InventoryController {
 
     @GetMapping("/")
     public String home(Model model) {
-        List<Inventory> inventories = inventoryService.getAllInventories();
+        final List<Inventory> inventories = inventoryService.getAllInventories();
         model.addAttribute("inventories", inventories);
         return "home";
     }
 
     @GetMapping("/inventory/{id}")
     public String viewInventory(@PathVariable Long id, Model model) {
-        Inventory inventory = inventoryService.getInventoryById(id);
+        final Inventory inventory = inventoryService.getInventoryById(id);
         model.addAttribute("inventory", inventory);
         return "view_inventory";
     }
@@ -46,7 +46,7 @@ public class InventoryController {
 
     @GetMapping("/inventory/{id}/edit")
     public String showEditInventoryForm(@PathVariable Long id, Model model) {
-        Inventory inventory = inventoryService.getInventoryById(id);
+        final Inventory inventory = inventoryService.getInventoryById(id);
         model.addAttribute("inventory", inventory);
         return "edit_inventory";
     }
@@ -56,7 +56,7 @@ public class InventoryController {
                                 @RequestParam("name") String name,
                                 @RequestParam("description") String description,
                                 @RequestParam("quantity") int quantity) {
-        Inventory inventory = inventoryService.getInventoryById(id);
+        final Inventory inventory = inventoryService.getInventoryById(id);
         inventory.setName(name);
         inventory.setDescription(description);
         inventory.setQuantity(quantity);
