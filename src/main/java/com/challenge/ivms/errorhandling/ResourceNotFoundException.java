@@ -1,4 +1,4 @@
-package com.challenge.ivms.errorHandling;
+package com.challenge.ivms.errorhandling;
 
 public class ResourceNotFoundException extends RuntimeException {
     private String resourceName;

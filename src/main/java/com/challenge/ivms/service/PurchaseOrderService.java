@@ -1,6 +1,6 @@
 package com.challenge.ivms.service;
 
-import com.challenge.ivms.errorHandling.ResourceNotFoundException;
+import com.challenge.ivms.errorhandling.ResourceNotFoundException;
 import com.challenge.ivms.model.Item;
 import com.challenge.ivms.model.PurchaseOrder;
 import com.challenge.ivms.model.PurchaseOrderStatus;

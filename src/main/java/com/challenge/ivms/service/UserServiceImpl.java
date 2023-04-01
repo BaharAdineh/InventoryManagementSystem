@@ -1,6 +1,6 @@
 package com.challenge.ivms.service;
 
-import com.challenge.ivms.errorHandling.ResourceNotFoundException;
+import com.challenge.ivms.errorhandling.ResourceNotFoundException;
 import com.challenge.ivms.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
