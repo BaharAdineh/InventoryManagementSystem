@@ -22,12 +22,12 @@ public class OrderService {
     }
 
     public OrderResponse createOrder(OrderItemRequest orderRequest) {
-        Order order = new Order();
-        List<OrderItem> orderItems = new ArrayList<>();
+        final Order order = new Order();
+        final List<OrderItem> orderItems = new ArrayList<>();
 
-        for (OrderItemRequest.OrderItemRequestItem orderItemRequest : orderRequest.getOrderItems()) {
-            Product product = productService.getProductById(orderItemRequest.getProductId());
-            int availableQuantity = product.getQuantity();
+        for (final OrderItemRequest.OrderItemRequestItem orderItemRequest : orderRequest.getOrderItems()) {
+            final Product product = productService.getProductById(orderItemRequest.getProductId());
+            final int availableQuantity = product.getQuantity();
 
             if (availableQuantity >= orderItemRequest.getQuantity()) {
                 int updatedQuantity = availableQuantity - orderItemRequest.getQuantity();

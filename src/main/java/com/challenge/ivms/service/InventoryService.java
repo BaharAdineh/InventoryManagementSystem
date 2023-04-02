@@ -20,7 +20,7 @@ public class InventoryService {
     }
 
     public Inventory getInventoryById(Long id) {
-        Optional<Inventory> inventory = inventoryRepository.findById(id);
+        final Optional<Inventory> inventory = inventoryRepository.findById(id);
         if (inventory.isPresent()) {
             return inventory.get();
         }
@@ -36,14 +36,14 @@ public class InventoryService {
     }
 
     public void validateInventory(Long itemId, int quantity) {
-        int availableInventory = getAvailableInventory(itemId);
+        final int availableInventory = getAvailableInventory(itemId);
         if (quantity > availableInventory) {
             throw new IllegalArgumentException("Insufficient inventory for item " + itemId);
         }
     }
 
     public int getAvailableInventory(Long itemId) {
-        Inventory inventory = inventoryRepository.findByItemId(itemId).orElse(null);
+        final Inventory inventory = inventoryRepository.findByItemId(itemId).orElse(null);
         if (inventory == null) {
             throw new IllegalArgumentException("Invalid item id: " + itemId);
         }
@@ -52,10 +52,10 @@ public class InventoryService {
 
 
     public void updateInventory(Long itemId, int quantity) {
-        Inventory inventory = inventoryRepository.findByItemId(itemId).orElseThrow(() ->
+        final Inventory inventory = inventoryRepository.findByItemId(itemId).orElseThrow(() ->
                 new IllegalArgumentException("Invalid item id: " + itemId));
 
-        int updatedQuantity = inventory.getQuantity() - quantity;
+        final int updatedQuantity = inventory.getQuantity() - quantity;
         if (updatedQuantity < 0) {
             throw new IllegalArgumentException("Insufficient inventory for item " + itemId);
         }

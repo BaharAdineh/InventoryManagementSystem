@@ -26,9 +26,9 @@ public class UserValidator implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-        User user = (User) target;
+        final User user = (User) target;
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "NotEmpty");
-        String username = user.getUsername();
+        final String username = user.getUsername();
         if (username.length() < MIN_USERNAME_LENGTH || username.length() > MAX_USERNAME_LENGTH) {
             errors.rejectValue("username", "Size.userForm.username");
         }
@@ -36,7 +36,7 @@ public class UserValidator implements Validator {
             errors.rejectValue("username", "Duplicate.userForm.username");
         }
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
-        String password = user.getPassword();
+        final String password = user.getPassword();
         if (password.length() < MIN_PASSWORD_LENGTH || password.length() > MAX_PASSWORD_LENGTH) {
             errors.rejectValue("password", "Size.userForm.password");
         }

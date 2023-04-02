@@ -12,18 +12,18 @@ public class InvoiceService {
     private ProductService productService;
 
     public Invoice generateInvoice(Order order) {
-        List<OrderItem> orderItems = order.getOrderItems();
+        final List<OrderItem> orderItems = order.getOrderItems();
         double totalAmount = 0.0;
 
-        List<InvoiceItem> invoiceItems = new ArrayList<>();
+        final List<InvoiceItem> invoiceItems = new ArrayList<>();
 
-        for (OrderItem orderItem : orderItems) {
-            Product product = productService.getProductById(orderItem.getItemId());
-            double itemPrice = product.getPrice();
-            double itemTotal = itemPrice * orderItem.getQuantity();
+        for (final OrderItem orderItem : orderItems) {
+            final Product product = productService.getProductById(orderItem.getItemId());
+            final double itemPrice = product.getPrice();
+            final double itemTotal = itemPrice * orderItem.getQuantity();
             totalAmount += itemTotal;
 
-            InvoiceItem invoiceItem = new InvoiceItem();
+            final InvoiceItem invoiceItem = new InvoiceItem();
             invoiceItem.setProductName(product.getName());
             invoiceItem.setQuantity(orderItem.getQuantity());
             invoiceItem.setPrice(itemPrice);
@@ -32,7 +32,7 @@ public class InvoiceService {
             invoiceItems.add(invoiceItem);
         }
 
-        Invoice invoice = new Invoice();
+        final Invoice invoice = new Invoice();
         invoice.setOrderId(order.getId());
         invoice.setCustomerName(order.getCustomerName());
         invoice.setAddress(order.getAddress());
