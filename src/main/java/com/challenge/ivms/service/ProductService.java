@@ -25,7 +25,7 @@ public class ProductService {
 
 
     public Product getProductById(String productId) {
-        Optional<Product> productOptional = productRepository.findById(productId);
+        final Optional<Product> productOptional = productRepository.findById(productId);
         if (productOptional.isPresent()) {
             return productOptional.get();
         } else {
@@ -34,7 +34,7 @@ public class ProductService {
     }
 
     public Product updateProduct(String id, Product product) {
-        Product existingProduct = getProductById(id);
+        final Product existingProduct = getProductById(id);
         existingProduct.setName(product.getName());
         existingProduct.setPrice(product.getPrice());
         existingProduct.setQuantity(product.getQuantity());
@@ -42,7 +42,7 @@ public class ProductService {
     }
 
     public void deleteProduct(String id) {
-        Product product = getProductById(id);
+        final Product product = getProductById(id);
         productRepository.delete(product);
     }
 }

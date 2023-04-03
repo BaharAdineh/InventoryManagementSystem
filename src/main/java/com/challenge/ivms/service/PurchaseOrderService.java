@@ -33,15 +33,15 @@ public class PurchaseOrderService {
     }
 
     public PurchaseOrder updatePurchaseOrderStatus(String id, PurchaseOrderStatus status) {
-        PurchaseOrder purchaseOrder = getPurchaseOrderById(id);
+        final PurchaseOrder purchaseOrder = getPurchaseOrderById(id);
         purchaseOrder.setStatus(status);
         purchaseOrder.setUpdateDate(new Date());
         return purchaseOrderRepository.save(purchaseOrder);
     }
 
     public PurchaseOrder addItemsToPurchaseOrder(String id, List<Item> items) {
-        PurchaseOrder purchaseOrder = getPurchaseOrderById(id);
-        List<Item> currentItems = purchaseOrder.getItems();
+        final PurchaseOrder purchaseOrder = getPurchaseOrderById(id);
+        final List<Item> currentItems = purchaseOrder.getItems();
         currentItems.addAll(items);
         purchaseOrder.setItems(currentItems);
         purchaseOrder.setUpdateDate(new Date());

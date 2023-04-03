@@ -30,11 +30,11 @@ public class OrderService {
             final int availableQuantity = product.getQuantity();
 
             if (availableQuantity >= orderItemRequest.getQuantity()) {
-                int updatedQuantity = availableQuantity - orderItemRequest.getQuantity();
+                final int updatedQuantity = availableQuantity - orderItemRequest.getQuantity();
                 product.setQuantity(updatedQuantity);
                 productService.updateProduct(product.getId(), product);
 
-                OrderItem orderItem = new OrderItem();
+                final OrderItem orderItem = new OrderItem();
                 orderItem.setItemId(product.getId());
                 orderItem.setQuantity(orderItemRequest.getQuantity());
                 orderItem.setPrice(product.getPrice());
@@ -46,9 +46,9 @@ public class OrderService {
 
         order.setUserId(orderRequest.getUserId());
         order.setOrderItems(orderItems);
-        Order savedOrder = orderRepository.save(order);
+        final Order savedOrder = orderRepository.save(order);
 
-        Invoice invoice = invoiceService.generateInvoice(savedOrder);
+        final Invoice invoice = invoiceService.generateInvoice(savedOrder);
         // Send the invoice to the customer
 
         return new OrderResponse(savedOrder.getId(), savedOrder.getUserId(), savedOrder.getOrderItems());
