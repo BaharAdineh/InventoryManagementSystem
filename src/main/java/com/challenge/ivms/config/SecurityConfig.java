@@ -27,7 +27,7 @@ public class SecurityConfig extends HttpServlet {
     }
 
     @Override
-    protected void service(HttpServletRequest request, HttpServletResponse response)
+    protected void service(final HttpServletRequest request, final HttpServletResponse response)
             throws ServletException, IOException {
         final String user = request.getParameter("username");
         final String pass = request.getParameter("password");
