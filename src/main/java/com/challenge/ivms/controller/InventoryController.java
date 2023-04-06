@@ -16,7 +16,7 @@ public class InventoryController {
     private InventoryService inventoryService;
 
     @GetMapping("/")
-    public String home(Model model) {
+    public String home(final Model model) {
         final List<Inventory> inventories = inventoryService.getAllInventories();
         model.addAttribute("inventories", inventories);
         return "home";
@@ -35,7 +35,7 @@ public class InventoryController {
     }
 
     @PostMapping("/inventory/new")
-    public String addInventory(@ModelAttribute("inventory") Inventory inventory, BindingResult result) {
+    public String addInventory(final @ModelAttribute("inventory") Inventory inventory, BindingResult result) {
         if (result.hasErrors()) {
             return "inventory-form";
         }
@@ -52,10 +52,10 @@ public class InventoryController {
     }
 
     @PostMapping("/inventory/{id}/edit")
-    public String editInventory(@PathVariable Long id,
-                                @RequestParam("name") String name,
-                                @RequestParam("description") String description,
-                                @RequestParam("quantity") int quantity) {
+    public String editInventory(final @PathVariable Long id,
+                                final @RequestParam("name") String name,
+                                final @RequestParam("description") String description,
+                                final @RequestParam("quantity") int quantity) {
         final Inventory inventory = inventoryService.getInventoryById(id);
         inventory.setName(name);
         inventory.setDescription(description);
