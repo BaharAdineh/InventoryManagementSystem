@@ -24,7 +24,7 @@ public class OrderService {
     public OrderResponse createOrder(OrderItemRequest orderRequest) {
         final Order order = new Order();
         final List<OrderItem> orderItems = new ArrayList<>();
-
+        final OrderItem orderItem = new OrderItem();
         for (final OrderItemRequest.OrderItemRequestItem orderItemRequest : orderRequest.getOrderItems()) {
             final Product product = productService.getProductById(orderItemRequest.getProductId());
             final int availableQuantity = product.getQuantity();
@@ -34,7 +34,7 @@ public class OrderService {
                 product.setQuantity(updatedQuantity);
                 productService.updateProduct(product.getId(), product);
 
-                final OrderItem orderItem = new OrderItem();
+
                 orderItem.setItemId(product.getId());
                 orderItem.setQuantity(orderItemRequest.getQuantity());
                 orderItem.setPrice(product.getPrice());
@@ -47,9 +47,6 @@ public class OrderService {
         order.setUserId(orderRequest.getUserId());
         order.setOrderItems(orderItems);
         final Order savedOrder = orderRepository.save(order);
-
-        final Invoice invoice = invoiceService.generateInvoice(savedOrder);
-        // Send the invoice to the customer
 
         return new OrderResponse(savedOrder.getId(), savedOrder.getUserId(), savedOrder.getOrderItems());
     }

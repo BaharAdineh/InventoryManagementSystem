@@ -16,14 +16,14 @@ public class InvoiceService {
         double totalAmount = 0.0;
 
         final List<InvoiceItem> invoiceItems = new ArrayList<>();
-
+        final InvoiceItem invoiceItem = new InvoiceItem();
         for (final OrderItem orderItem : orderItems) {
             final Product product = productService.getProductById(orderItem.getItemId());
             final double itemPrice = product.getPrice();
             final double itemTotal = itemPrice * orderItem.getQuantity();
             totalAmount += itemTotal;
 
-            final InvoiceItem invoiceItem = new InvoiceItem();
+
             invoiceItem.setProductName(product.getName());
             invoiceItem.setQuantity(orderItem.getQuantity());
             invoiceItem.setPrice(itemPrice);
