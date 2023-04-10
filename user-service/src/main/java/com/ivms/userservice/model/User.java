@@ -1,4 +1,4 @@
-package com.challenge.ivms.model;
+package com.ivms.userservice.model;
 
 import lombok.Data;
 

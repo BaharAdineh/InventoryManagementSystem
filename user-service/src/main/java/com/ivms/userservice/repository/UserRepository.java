@@ -1,4 +1,4 @@
-package com.challenge.ivms.repository;
+package com.ivms.userservice.repository;
 
 
 import org.springframework.data.mongodb.repository.MongoRepository;

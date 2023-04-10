@@ -1,4 +1,4 @@
-package com.challenge.ivms.controller;
+package com.ivms.userservice.controller;
 
 import com.challenge.ivms.model.User;
 import com.challenge.ivms.service.UserService;

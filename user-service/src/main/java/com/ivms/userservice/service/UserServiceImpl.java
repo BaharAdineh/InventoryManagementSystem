@@ -1,4 +1,4 @@
-package com.challenge.ivms.service;
+package com.ivms.userservice.service;
 
 import com.challenge.ivms.errorhandling.ResourceNotFoundException;
 import com.challenge.ivms.repository.UserRepository;

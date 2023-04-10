@@ -1,4 +1,4 @@
-package com.challenge.ivms.controller;
+package com.ivms.userservice.controller;
 
 
 import java.util.List;
