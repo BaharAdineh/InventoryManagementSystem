@@ -2,6 +2,9 @@ package com.ivms.userservice.controller;
 
 
 import java.util.List;
+
+import com.ivms.userservice.model.User;
+import com.ivms.userservice.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -11,8 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import com.challenge.ivms.model.User;
-import com.challenge.ivms.service.UserServiceImpl;
 
 @Controller
 public class UserController {

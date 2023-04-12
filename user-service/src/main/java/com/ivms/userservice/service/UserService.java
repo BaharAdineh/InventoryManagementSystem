@@ -1,5 +1,6 @@
 package com.ivms.userservice.service;
-import com.challenge.ivms.model.User;
+import com.ivms.userservice.model.User;
+
 import java.util.List;
 
 public interface UserService {

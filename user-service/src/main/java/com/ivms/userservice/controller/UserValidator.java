@@ -1,7 +1,7 @@
 package com.ivms.userservice.controller;
 
-import com.challenge.ivms.model.User;
-import com.challenge.ivms.service.UserService;
+import com.ivms.userservice.model.User;
+import com.ivms.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

@@ -1,10 +1,10 @@
 package com.ivms.userservice.service;
 
 import com.challenge.ivms.errorhandling.ResourceNotFoundException;
-import com.challenge.ivms.repository.UserRepository;
+import com.ivms.userservice.model.User;
+import com.ivms.userservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.challenge.ivms.model.User;
 
 import java.util.List;
 
