@@ -3,3 +3,13 @@ managment:
     web:
       exposure:
         include: "*"
+
+
+spring:
+  data:
+    mongodb:
+        database: order-service-db
+        host: localhost
+        port: 27017
+        username: root
+        password: root
