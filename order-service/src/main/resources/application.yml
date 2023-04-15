@@ -12,4 +12,4 @@ spring:
         host: localhost
         port: 27017
         username: root
-        password: '{cipher}c3VwZXJzZXJ2aWNlLXNlY3JldA=='
+        password: '{cipher}c820ff447a0cf5ce7d612c0d38c2fb86da35464a5e9aa8804e579d29be4f4725'
