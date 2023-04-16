@@ -12,5 +12,5 @@ public class User {
     private String username;
     private String password;
     private String confirmPassword;
-    private List<Order> orders;
+    //private List<Order> orders;
 }

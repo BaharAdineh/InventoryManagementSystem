@@ -7,3 +7,9 @@ spring:
       server:
         git:
           uri: https://github.com/BaharAdineh/InventoryManagementSystem-Configuration.git
+
+encrypt:
+  key-store:
+    location: classpath:/keystore.p12
+    alias: InventoryManagementSystem
+    password: InventoryManagementSystem
