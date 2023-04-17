@@ -7,13 +7,18 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.io.IOException;
 
-@WebServlet(name = "SecurityConfig", urlPatterns = {"/secure"}, initParams = {
-        @WebInitParam(name = "username", value = "admin"),
-        @WebInitParam(name = "password", value = "secret")})
-@ServletSecurity
+//@WebServlet(name = "SecurityConfig", urlPatterns = {"/secure"}, initParams = {
+//        @WebInitParam(name = "username", value = "admin"),
+//        @WebInitParam(name = "password", value = "secret")})
+//@ServletSecurity
+@Configuration
 public class SecurityConfig extends HttpServlet {
 
     private String username;
@@ -25,6 +30,7 @@ public class SecurityConfig extends HttpServlet {
         username = getInitParameter("username");
         password = getInitParameter("password");
     }
+
 
     @Override
     protected void service(final HttpServletRequest request, final HttpServletResponse response)
