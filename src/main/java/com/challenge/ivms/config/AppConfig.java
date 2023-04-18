@@ -14,7 +14,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import lombok.extern.slf4j.Slf4j;
 
+@slf4j
 @Configuration
 @EnableMongoRepositories(basePackages = "com.challenge.ivms.repository")
 @Data
@@ -32,7 +34,7 @@ public class AppConfig extends AbstractMongoClientConfiguration {
             mongoClient = MongoClients.create(mongoUri);
         } catch (MongoSocketOpenException e) {
             // Handle the exception
-            System.out.println("Exception opening socket: " + e.getMessage());
+            log.error("Exception opening socket: " + e.getMessage());
         }
         return mongoClient;
     }
