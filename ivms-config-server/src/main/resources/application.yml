@@ -10,6 +10,6 @@ spring:
 
 encrypt:
   key-store:
-    location: classpath:/keystore.p12
+    location: 
     alias: InventoryManagementSystem
     password: InventoryManagementSystem
