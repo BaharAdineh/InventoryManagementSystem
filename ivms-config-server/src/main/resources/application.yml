@@ -1,4 +1,4 @@
-server.port: 8888
+
 spring:
   application:
     name: ivms-config-server
@@ -8,8 +8,8 @@ spring:
         git:
           uri: https://github.com/BaharAdineh/InventoryManagementSystem-Configuration.git
 
-encrypt:
-  key-store:
-    location: classpath:/keystore.p12
-    alias: InventoryManagementSystem
-    password: InventoryManagementSystem
+server:
+  ssl:
+    key-store:  classpath:InventoryManagementSystem.p12
+    key-alias: InventoryManagementSystem
+    client-auth: need
