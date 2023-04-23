@@ -9,7 +9,13 @@ spring:
           uri: https://github.com/BaharAdineh/InventoryManagementSystem-Configuration.git
 
 server:
+  port: 8888
   ssl:
-    key-store:  classpath:InventoryManagementSystem.p12
-    key-alias: InventoryManagementSystem
+    enabled: true
+    key-store:  classpath:ivms-keystore.p12
+    key-store-password: InventoryManagementSystem
+    key-store-type: PKCS12
     client-auth: need
+    trust-store: "classpath:ivms-truststore.p12"
+    trust-store-password: InventoryManagementSystem
+    trust-store-type: PKCS12
