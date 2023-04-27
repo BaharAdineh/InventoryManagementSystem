@@ -49,6 +49,8 @@ public class AppConfig extends AbstractMongoClientConfiguration {
         return new MongoTemplate(mongoClient(), getDatabaseName());
     }
 
+
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

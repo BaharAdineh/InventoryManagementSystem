@@ -3,7 +3,7 @@ package com.ivms.userservice.controller;
 
 import java.util.List;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import com.ivms.userservice.model.User;
 import com.ivms.userservice.service.UserServiceImpl;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Controller
 public class UserController {
@@ -25,9 +25,8 @@ public class UserController {
 
     @Autowired
     private UserValidator userValidator;
-
-    @Autowired
     private PasswordEncoder passwordEncoder;
+
 
     @GetMapping("/register")
     public String showRegistrationForm(Model model) {
