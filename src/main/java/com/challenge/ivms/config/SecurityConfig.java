@@ -1,48 +1,37 @@
 package com.challenge.ivms.config;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.ServletSecurity;
-import jakarta.servlet.annotation.WebInitParam;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.context.annotation.Bean;
+
+import com.challenge.ivms.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
-import java.io.IOException;
-
-//@WebServlet(name = "SecurityConfig", urlPatterns = {"/secure"}, initParams = {
-//        @WebInitParam(name = "username", value = "admin"),
-//        @WebInitParam(name = "password", value = "secret")})
-//@ServletSecurity
 @Configuration
-public class SecurityConfig extends HttpServlet {
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private String username;
-    private String password;
+    @Autowired
+    private UserService userService;
 
     @Override
-    public void init() throws ServletException {
-        super.init();
-        username = getInitParameter("username");
-        password = getInitParameter("password");
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .authorizeRequests()
+                .antMatchers("/api/login").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .permitAll()
+                .and()
+                .logout()
+                .permitAll();
     }
 
-
-    @Override
-    protected void service(final HttpServletRequest request, final HttpServletResponse response)
-            throws ServletException, IOException {
-        final String user = request.getParameter("username");
-        final String pass = request.getParameter("password");
-
-        if (username.equals(user) && password.equals(pass)) {
-            response.setContentType("text/html");
-            response.getWriter().println("<html><body><h1>Hello, secure world!</h1></body></html>");
-        } else {
-            response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
-        }
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userService);
     }
 }
