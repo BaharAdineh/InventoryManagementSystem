@@ -3,13 +3,10 @@ package com.challenge.ivms.config;
 import com.ivms.userservice.model.User;
 import lombok.Value;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.security.SignatureException;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 @Component
 public class JwtTokenProvider {
 
