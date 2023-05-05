@@ -10,3 +10,7 @@ spring:
     user:
       name: admin
       password: admin
+
+jwt :
+  secret: your-jwt-secret
+  expiration: 3600

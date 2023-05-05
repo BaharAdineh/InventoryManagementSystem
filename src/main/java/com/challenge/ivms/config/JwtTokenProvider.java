@@ -1,11 +1,11 @@
 package com.challenge.ivms.config;
 
 import com.ivms.userservice.model.User;
+import io.jsonwebtoken.*;
 import lombok.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
-import java.security.SignatureException;
 import java.util.Date;
 @Component
 public class JwtTokenProvider {
@@ -33,8 +33,6 @@ public class JwtTokenProvider {
         try {
             Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);
             return true;
-        } catch (SignatureException ex) {
-            System.out.println("Invalid JWT signature");
         } catch (MalformedJwtException ex) {
             System.out.println("Invalid JWT token");
         } catch (ExpiredJwtException ex) {
