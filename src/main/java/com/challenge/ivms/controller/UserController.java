@@ -1,7 +1,7 @@
 package com.challenge.ivms.controller;
 
 import com.challenge.ivms.config.JwtTokenProvider;
-import com.challenge.ivms.service.UserService;
+import com.ivms.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
