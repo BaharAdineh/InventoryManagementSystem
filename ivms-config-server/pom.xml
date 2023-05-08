@@ -10,7 +10,6 @@
 	</parent>
 	<groupId>com.ivms</groupId>
 	<artifactId>ivms-config-server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>ivms-config-server</name>
 	<description>ivms-config-server</description>
 	<properties>

@@ -10,7 +10,6 @@
     </parent>
     <groupId>com.challenge</groupId>
     <artifactId>InventoryManagementSystem</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>InventoryManagementSystem</name>
     <description>InventoryManagementSystem</description>
     <properties>
@@ -83,7 +82,6 @@
         <dependency>
             <groupId>com.ivms</groupId>
             <artifactId>user-service</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

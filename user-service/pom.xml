@@ -10,7 +10,6 @@
     </parent>
     <groupId>com.ivms</groupId>
     <artifactId>user-service</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>user-service</name>
     <description>user-service</description>
     <properties>
@@ -36,12 +35,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.26</version>
-        </dependency>
-        <dependency>
-            <groupId>com.challenge</groupId>
-            <artifactId>InventoryManagementSystem</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
