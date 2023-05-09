@@ -10,6 +10,7 @@
     </parent>
     <groupId>com.challenge</groupId>
     <artifactId>InventoryManagementSystem</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
     <name>InventoryManagementSystem</name>
     <description>InventoryManagementSystem</description>
     <properties>
@@ -93,6 +94,15 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-oauth2-jose</artifactId>
             <version>5.7.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.owasp.encoder</groupId>
+            <artifactId>encoder</artifactId>
+            <version>1.2.3</version>
         </dependency>
     </dependencies>
 
