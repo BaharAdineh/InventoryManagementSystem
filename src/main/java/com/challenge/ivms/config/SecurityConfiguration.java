@@ -35,9 +35,6 @@ public class SecurityConfiguration {
     @Autowired
     private JWKSource<SecurityContext> jwkSource;
 
-    @Autowired
-    private UserTypeResolver userTypeResolver;
-
     @Value("${security.jws.max-clock-skew-seconds}")
     private int maxClockSkewInSeconds;
 
@@ -54,7 +51,7 @@ public class SecurityConfiguration {
             // Effectively, a 'whitelist' is in operation, all other paths are open.
             .addFilterBefore(new TokenAuthenticationFilter(objectMapper, (request, response, authException) ->
                     response.sendError(HttpServletResponse.SC_UNAUTHORIZED, Encode.forHtmlContent(authException.getMessage())),
-                    new JwsParser(new DefaultJWTProcessor<>(), jwkSource, maxClockSkewInSeconds), new EOTPorOKPassUserPrincipalValidator(userTypeResolver)),
+                    new JwsParser(new DefaultJWTProcessor<>(), jwkSource, maxClockSkewInSeconds)),
                 BasicAuthenticationFilter.class)
             .headers().contentSecurityPolicy("default-src 'none'; frame-ancestors 'none'")
             .and()

@@ -31,9 +31,9 @@ public class TokenAuthenticationFilter extends GenericFilterBean {
     private final ObjectMapper objectMapper;
     private final AuthenticationEntryPoint authenticationEntryPoint;
     private final JwsParser jwsParser;
-    private final UserPrincipalValidator userPrincipalValidator;
+    private UserPrincipalValidator userPrincipalValidator;
 
-    public TokenAuthenticationFilter(final ObjectMapper objectMapper, AuthenticationEntryPoint authenticationEntryPoint, JwsParser jwsParser, UserPrincipalValidator userPrincipalValidator) {
+    public TokenAuthenticationFilter(final ObjectMapper objectMapper, AuthenticationEntryPoint authenticationEntryPoint, JwsParser jwsParser) {
         this.objectMapper = objectMapper;
         this.authenticationEntryPoint = authenticationEntryPoint;
         this.jwsParser = jwsParser;
