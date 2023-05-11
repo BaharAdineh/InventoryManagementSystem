@@ -17,7 +17,7 @@ public class UserValidator implements Validator {
     private static final int MAX_PASSWORD_LENGTH = 30;
 
     @Autowired
-    private UserService userService;
+    private UserService userService; // todo: this is not a good practice, use constructor injection
 
     @Override
     public boolean supports(Class<?> clazz) {
