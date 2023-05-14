@@ -11,6 +11,13 @@ spring:
       name: admin
       password: admin
 
+security:
+  jws:
+    connection-timeout: 600
+    read-timeout: 600
+    url: "????"
+    max-clock-skew-seconds: 3
+
 jwt :
   secret: your-jwt-secret
   expiration: 3600
