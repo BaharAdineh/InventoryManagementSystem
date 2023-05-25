@@ -11,12 +11,12 @@
     <artifactId>ivms-user-service</artifactId>
     <name>ivms-user-service</name>
     <description>ivms-user-service</description>
+    <packaging>pom</packaging>
     <properties>
         <maven.deploy.skip>true</maven.deploy.skip>
         <maven.install.skip>true</maven.install.skip>
         <sonar.skip>true</sonar.skip>
     </properties>
-
     <modules>
         <module>user-service</module>
     </modules>

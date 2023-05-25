@@ -11,6 +11,7 @@
     <artifactId>ivms-order-service</artifactId>
     <name>ivms-order-service</name>
     <description>ivms-order-service</description>
+    <packaging>pom</packaging>
     <properties>
         <maven.deploy.skip>true</maven.deploy.skip>
         <maven.install.skip>true</maven.install.skip>

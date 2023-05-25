@@ -8,6 +8,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>com.ivms</groupId>
+	<packaging>pom</packaging>
 	<artifactId>ivms-product-service</artifactId>
 	<name>ivms-product-service</name>
 	<description>ivms-product-service</description>
