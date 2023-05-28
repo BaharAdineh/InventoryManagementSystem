@@ -21,7 +21,7 @@
 		<sonar.skip>true</sonar.skip>
 	</properties>
 	<modules>
-		<module>config-server</module>
+		<module>ivms-config-server</module>
 	</modules>
 
 </project>

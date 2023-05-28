@@ -18,7 +18,7 @@
         <sonar.skip>true</sonar.skip>
     </properties>
     <modules>
-        <module>user-service</module>
+        <module>ivms-user-service</module>
     </modules>
 
 </project>

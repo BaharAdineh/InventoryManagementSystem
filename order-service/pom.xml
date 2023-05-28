@@ -18,7 +18,7 @@
         <sonar.skip>true</sonar.skip>
     </properties>
     <modules>
-        <module>order-service</module>
+        <module>ivms-order-service</module>
     </modules>
 
 
