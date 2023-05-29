@@ -12,14 +12,6 @@
 	<name>ivms-config-server</name>
 	<packaging>pom</packaging>
 	<description>ivms-config-server</description>
-	<properties>
-		<java.version>17</java.version>
-		<maven.deploy.skip>true</maven.deploy.skip>
-		<maven.install.skip>true</maven.install.skip>
-		<maven.compiler.source>17</maven.compiler.source>
-		<maven.compiler.target>17</maven.compiler.target>
-		<sonar.skip>true</sonar.skip>
-	</properties>
 	<modules>
 		<module>ivms-config-server</module>
 	</modules>
