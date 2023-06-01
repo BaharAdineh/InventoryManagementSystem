@@ -4,20 +4,32 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.ivms</groupId>
-		<artifactId>InventoryManagementSystem-parent</artifactId>
+		<artifactId>config-server</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>com.ivms</groupId>
-	<artifactId>ivms-config-server</artifactId>
-	<name>ivms-config-server</name>
+	<artifactId>config-server</artifactId>
+	<name>config-server</name>
 	<packaging>pom</packaging>
-	<description>ivms-config-server</description>
+	<description>config-server</description>
 	<properties>
 		<maven.deploy.skip>true</maven.deploy.skip>
 		<maven.install.skip>true</maven.install.skip>
 		<sonar.skip>true</sonar.skip>
 	</properties>
-	<modules>
-		<module>config-server</module>
-	</modules>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-server</artifactId>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>config-server</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>

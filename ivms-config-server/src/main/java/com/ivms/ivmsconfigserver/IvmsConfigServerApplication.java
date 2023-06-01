@@ -6,10 +6,8 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 
 @SpringBootApplication
 @EnableConfigServer
-public class IvmsConfigServerApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(IvmsConfigServerApplication.class, args);
+class ConfigServer {
+	public static void main(final String[] args) {
+		SpringApplication.run(ConfigServer.class, args); //NOSONAR
 	}
-
 }
