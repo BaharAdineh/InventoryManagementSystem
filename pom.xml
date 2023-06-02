@@ -23,9 +23,9 @@
         <spring-cloud-services-dependencies.version>4.0.2</spring-cloud-services-dependencies.version>
     </properties>
     <modules>
-        <module>ivms-user-service</module>
-        <module>ivms-product-service</module>
-        <module>ivms-order-service</module>
+        <module>product-service</module>
+        <module>order-service</module>
+        <module>user-service</module>
     </modules>-->
     <dependencyManagement>
         <dependencies>
