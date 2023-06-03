@@ -8,17 +8,13 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <groupId>com.ivms</groupId>
-    <artifactId>ivms-user-service</artifactId>
-    <name>ivms-user-service</name>
-    <description>ivms-user-service</description>
+    <artifactId>user-service</artifactId>
+    <name>user-service</name>
+    <description>user-service</description>
     <packaging>pom</packaging>
     <properties>
         <maven.deploy.skip>true</maven.deploy.skip>
         <maven.install.skip>true</maven.install.skip>
         <sonar.skip>true</sonar.skip>
     </properties>
-    <modules>
-        <module>ivms-user-service</module>
-    </modules>
-
 </project>

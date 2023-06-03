@@ -8,28 +8,13 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>com.ivms</groupId>
+	<packaging>pom</packaging>
 	<artifactId>config-server</artifactId>
 	<name>config-server</name>
-	<packaging>pom</packaging>
 	<description>config-server</description>
 	<properties>
 		<maven.deploy.skip>true</maven.deploy.skip>
 		<maven.install.skip>true</maven.install.skip>
 		<sonar.skip>true</sonar.skip>
 	</properties>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
-		</dependency>
-	</dependencies>
-	<build>
-		<finalName>config-server</finalName>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
 </project>

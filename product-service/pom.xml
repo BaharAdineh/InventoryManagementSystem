@@ -9,15 +9,12 @@
 	</parent>
 	<groupId>com.ivms</groupId>
 	<packaging>pom</packaging>
-	<artifactId>ivms-product-service</artifactId>
-	<name>ivms-product-service</name>
-	<description>ivms-product-service</description>
+	<artifactId>product-service</artifactId>
+	<name>product-service</name>
+	<description>product-service</description>
 	<properties>
 		<maven.deploy.skip>true</maven.deploy.skip>
 		<maven.install.skip>true</maven.install.skip>
 		<sonar.skip>true</sonar.skip>
 	</properties>
-	<modules>
-		<module></module>
-	</modules>
 </project>

@@ -8,18 +8,13 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <groupId>com.ivms</groupId>
-    <artifactId>ivms-order-service</artifactId>
-    <name>ivms-order-service</name>
-    <description>ivms-order-service</description>
+    <artifactId>order-service</artifactId>
+    <name>order-service</name>
+    <description>order-service</description>
     <packaging>pom</packaging>
     <properties>
         <maven.deploy.skip>true</maven.deploy.skip>
         <maven.install.skip>true</maven.install.skip>
         <sonar.skip>true</sonar.skip>
     </properties>
-    <modules>
-        <module>ivms-order-service</module>
-    </modules>
-
-
 </project>
