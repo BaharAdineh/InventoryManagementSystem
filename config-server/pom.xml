@@ -12,9 +12,27 @@
 	<artifactId>config-server</artifactId>
 	<name>config-server</name>
 	<description>config-server</description>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-config-server</artifactId>
+		</dependency>
+	</dependencies>
 	<properties>
 		<maven.deploy.skip>true</maven.deploy.skip>
 		<maven.install.skip>true</maven.install.skip>
 		<sonar.skip>true</sonar.skip>
 	</properties>
+	<modules>
+		<module>config-server</module>
+	</modules>
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 </project>
