@@ -1,38 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>com.ivms</groupId>
-		<artifactId>config-server</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
-	<groupId>com.ivms</groupId>
-	<packaging>pom</packaging>
-	<artifactId>config-server</artifactId>
-	<name>config-server</name>
-	<description>config-server</description>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
-		</dependency>
-	</dependencies>
-	<properties>
-		<maven.deploy.skip>true</maven.deploy.skip>
-		<maven.install.skip>true</maven.install.skip>
-		<sonar.skip>true</sonar.skip>
-	</properties>
-	<modules>
-		<module>config-server</module>
-	</modules>
-	<build>
-		<finalName>${project.artifactId}</finalName>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.challenge</groupId>
+        <artifactId>InventoryManagementSystem-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <groupId>com.ivms</groupId>
+    <artifactId>config-server</artifactId>
+    <name>config-server</name>
+    <description>config-server</description>
+    <packaging>pom</packaging>
+    <properties>
+        <maven.deploy.skip>true</maven.deploy.skip>
+        <maven.install.skip>true</maven.install.skip>
+        <sonar.skip>true</sonar.skip>
+    </properties>
 </project>

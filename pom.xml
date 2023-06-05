@@ -11,9 +11,9 @@
     <groupId>com.challenge</groupId>
     <artifactId>InventoryManagementSystem-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>InventoryManagementSystem</name>
+    <name>InventoryManagementSystem-parent</name>
     <packaging>pom</packaging>
-    <description>InventoryManagementSystem</description>
+    <description>InventoryManagementSystem-parent</description>
     <properties>
         <bouncycastle.version>1.70</bouncycastle.version>
         <java.version>17</java.version>
