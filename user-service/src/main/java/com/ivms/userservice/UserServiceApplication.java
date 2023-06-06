@@ -1,4 +1,4 @@
-package com.ivms.userservice;
+package com.challenge.ivms.userservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

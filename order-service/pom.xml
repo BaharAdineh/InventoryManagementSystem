@@ -7,7 +7,7 @@
         <artifactId>InventoryManagementSystem-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>com.ivms</groupId>
+    <groupId>com.challenge.ivms</groupId>
     <artifactId>order-service</artifactId>
     <name>order-service</name>
     <description>order-service</description>

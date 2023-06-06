@@ -1,4 +1,4 @@
-package com.ivms.ivmsconfigserver;
+package com.challenge.ivms.ivmsconfigserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

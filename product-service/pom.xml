@@ -7,7 +7,7 @@
 		<artifactId>InventoryManagementSystem-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>com.ivms</groupId>
+	<groupId>com.challenge.ivms</groupId>
 	<packaging>pom</packaging>
 	<artifactId>product-service</artifactId>
 	<name>product-service</name>

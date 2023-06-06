@@ -1,4 +1,4 @@
-package com.ivms.userservice;
+package com.challenge.ivms.userservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
