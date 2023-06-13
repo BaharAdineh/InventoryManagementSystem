@@ -8,13 +8,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>com.challenge.ivms</groupId>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 	<artifactId>product-service</artifactId>
 	<name>product-service</name>
 	<description>product-service</description>
-	<properties>
-		<maven.deploy.skip>true</maven.deploy.skip>
-		<maven.install.skip>true</maven.install.skip>
-		<sonar.skip>true</sonar.skip>
-	</properties>
+ 
 </project>
