@@ -12,5 +12,10 @@
 	<artifactId>product-service</artifactId>
 	<name>product-service</name>
 	<description>product-service</description>
- 
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+	</dependencies>
 </project>
