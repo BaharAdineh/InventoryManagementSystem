@@ -1,7 +1,6 @@
 package com.challenge.ivms.userservice.controller;
 
 import com.challenge.ivms.userservice.model.User;
-import com.challenge.ivms.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -17,7 +16,6 @@ public class UserValidator implements Validator {
     private static final int MAX_PASSWORD_LENGTH = 30;
 
     @Autowired
-    private UserService userService; // todo: this is not a good practice, use constructor injection
 
     @Override
     public boolean supports(Class<?> clazz) {
@@ -32,9 +30,7 @@ public class UserValidator implements Validator {
         if (username.length() < MIN_USERNAME_LENGTH || username.length() > MAX_USERNAME_LENGTH) {
             errors.rejectValue("username", "Size.userForm.username");
         }
-        if (userService.getUserByUsername(username) != null) {
-            errors.rejectValue("username", "Duplicate.userForm.username");
-        }
+
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
         final String password = user.getPassword();
         if (password.length() < MIN_PASSWORD_LENGTH || password.length() > MAX_PASSWORD_LENGTH) {
