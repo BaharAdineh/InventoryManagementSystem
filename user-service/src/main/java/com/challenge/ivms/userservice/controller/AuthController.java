@@ -5,8 +5,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import com.challenge.ivms.userservice.model.Role;
+import com.challenge.ivms.userservice.model.User;
 import com.challenge.ivms.userservice.repository.RoleRepository;
 import com.challenge.ivms.userservice.repository.UserRepository;
+import com.challenge.ivms.userservice.security.jwt.JwtUtils;
+import com.challenge.ivms.userservice.security.services.UserDetailsImpl;
 import jakarta.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
