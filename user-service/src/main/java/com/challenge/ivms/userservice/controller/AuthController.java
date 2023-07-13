@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import com.challenge.ivms.userservice.model.Role;
 import com.challenge.ivms.userservice.model.User;
+import com.challenge.ivms.userservice.model.ERole;
 import com.challenge.ivms.userservice.repository.RoleRepository;
 import com.challenge.ivms.userservice.repository.UserRepository;
 import com.challenge.ivms.userservice.security.jwt.JwtUtils;
