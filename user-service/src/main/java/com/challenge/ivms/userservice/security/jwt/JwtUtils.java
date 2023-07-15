@@ -26,10 +26,10 @@ public class JwtUtils {
     @Value("${ivms.app.jwtSecret}")
     private String jwtSecret;
 
-    @Value("${bezkoder.app.jwtExpirationMs}")
+    @Value("${ivms.app.jwtExpirationMs}")
     private int jwtExpirationMs;
 
-    @Value("${bezkoder.app.jwtCookieName}")
+    @Value("${ivms.app.jwtCookieName}")
     private String jwtCookie;
 
     public String getJwtFromCookies(HttpServletRequest request) {
