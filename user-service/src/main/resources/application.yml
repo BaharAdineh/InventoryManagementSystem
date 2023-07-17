@@ -8,7 +8,7 @@ ivms:
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/ivms-user-service-db
+      uri: mongodb://localhost:27017/?readPreference=primary'
       database: ivms-user-service-db
       host: localhost
   profiles:

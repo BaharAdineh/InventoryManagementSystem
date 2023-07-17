@@ -5,7 +5,6 @@ import com.challenge.ivms.userservice.security.jwt.AuthEntryPointJwt;
 import com.challenge.ivms.userservice.security.jwt.AuthTokenFilter;
 import com.challenge.ivms.userservice.security.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -66,7 +65,6 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers("/api/auth/**").permitAll()
                                 .requestMatchers("/api/test/**").permitAll()
-                                .requestMatchers("/api/roles/**").permitAll()
                                 .anyRequest().authenticated()
                 );
 
