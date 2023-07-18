@@ -4,19 +4,22 @@ package com.challenge.ivms.userservice.model;
 import java.util.HashSet;
 import java.util.Set;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
+@Builder
+@Getter
+@Setter
+@AllArgsConstructor
 @NoArgsConstructor
+@ToString
+@EqualsAndHashCode
 @Document(collection = "users")
 public class User {
     @Id

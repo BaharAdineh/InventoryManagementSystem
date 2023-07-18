@@ -1,22 +1,17 @@
-ivms:
-  app:
-    jwtCookieName: ivms
-    jwtSecret: 12345678901234567890123456789012
-    jwtExpirationMs: 86400000
-
-
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/?readPreference=primary'
+      uri: 'mongodb://localhost:27017/?readPreference=primary'
       database: ivms-user-service-db
       host: localhost
   profiles:
     active: dev
-  security:
-    user:
-      name: admin
-      password: admin
+
+logging:
+  pattern.console: "%clr(%5p) %clr([traceid=%X{traceId:-} spanid=%X{spanId:-} parentspanid=%X{parentId:-}]){green} ${PID:-} --- [%-15.15thread] %-40.40logger{39} : %replace(%msg %rEx{10}){'[\r\n]+', '\u2028'}%nopex%n"
+  level:
+    ROOT: warn
+    com.challenge.ivms: info
 
 server:
   port: 8082
