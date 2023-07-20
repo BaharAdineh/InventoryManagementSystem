@@ -15,3 +15,12 @@ logging:
 
 server:
   port: 8082
+
+
+ivms:
+  app:
+    jwtCookieName: jwt-token
+    jwtSecret: 1234567890
+    jwtExpirationMs: 86400000
+    jwtRefreshExpirationMs: 86400000
+    jwtRefreshCookieName: jwt-refresh-token
