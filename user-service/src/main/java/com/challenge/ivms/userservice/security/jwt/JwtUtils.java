@@ -23,13 +23,13 @@ import io.jsonwebtoken.security.Keys;
 public class JwtUtils {
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
-    @Value("${ivms.app.jwtSecret}")
+    @Value("${bezkoder.app.jwtSecret}")
     private String jwtSecret;
 
-    @Value("${ivms.app.jwtExpirationMs}")
+    @Value("${bezkoder.app.jwtExpirationMs}")
     private int jwtExpirationMs;
 
-    @Value("${ivms.app.jwtCookieName}")
+    @Value("${bezkoder.app.jwtCookieName}")
     private String jwtCookie;
 
     public String getJwtFromCookies(HttpServletRequest request) {
