@@ -4,8 +4,6 @@ spring:
       host: localhost
       port: 27017
       database: testdb
-      username: <username>
-      password: <password>
       authentication-database: admin
 
 ivms:

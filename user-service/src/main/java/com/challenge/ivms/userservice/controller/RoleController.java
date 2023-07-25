@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/roles")
 public class RoleController {
 
-       /* @PostMapping
-        public ResponseEntity<Role> createRole(@RequestBody Role role) {
-            log.info("Creating role: {}", role);
-            return ResponseEntity.ok(role);
-        }*/
+    @PostMapping
+    public ResponseEntity<Role> createRole(@RequestBody Role role) {
+        log.info("Creating role: {}", role);
+        return ResponseEntity.ok(role);
+    }
 }
