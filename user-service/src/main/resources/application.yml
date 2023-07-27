@@ -3,8 +3,11 @@ spring:
     mongodb:
       host: localhost
       port: 27017
-      database: testdb
+      database: user-service-db
+#      username: your_username
+#      password: your_password
       authentication-database: admin
+      auto-index-creation: true
 
 ivms:
   app:
