@@ -11,6 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "roles")
 public class Role {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private ERole name;
 
