@@ -1,11 +1,7 @@
 spring:
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: user-service-db
-#      username: your_username
-#      password: your_password
+      uri: mongodb://localhost:27017/user-service-db
       authentication-database: admin
       auto-index-creation: true
 
