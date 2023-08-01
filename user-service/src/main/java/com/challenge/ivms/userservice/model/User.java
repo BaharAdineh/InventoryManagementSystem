@@ -4,8 +4,6 @@ package com.challenge.ivms.userservice.model;
 import java.util.HashSet;
 import java.util.Set;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
