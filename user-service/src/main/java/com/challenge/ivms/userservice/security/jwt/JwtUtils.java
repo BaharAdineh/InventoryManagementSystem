@@ -4,7 +4,7 @@ package com.challenge.ivms.userservice.security.jwt;
 import java.security.Key;
 import java.util.Date;
 
-import com.challenge.ivms.userservice.security.services.UserDetailsImpl;
+import com.challenge.ivms.userservice.services.UserDetailsImpl;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 

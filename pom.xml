@@ -21,6 +21,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-cloud-dependencies.version>2022.0.2</spring-cloud-dependencies.version>
         <spring-cloud-services-dependencies.version>4.0.2</spring-cloud-services-dependencies.version>
+        <lombok.version>1.18.22</lombok.version>
     </properties>
     <modules>
         <module>config-server</module>
@@ -120,7 +121,7 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.26</version>
+                <version>${lombok.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>

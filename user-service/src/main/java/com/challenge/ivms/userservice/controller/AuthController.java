@@ -11,7 +11,7 @@ import com.challenge.ivms.userservice.model.ERole;
 import com.challenge.ivms.userservice.repository.RoleRepository;
 import com.challenge.ivms.userservice.repository.UserRepository;
 import com.challenge.ivms.userservice.security.jwt.JwtUtils;
-import com.challenge.ivms.userservice.security.services.UserDetailsImpl;
+import com.challenge.ivms.userservice.services.UserDetailsImpl;
 import jakarta.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
