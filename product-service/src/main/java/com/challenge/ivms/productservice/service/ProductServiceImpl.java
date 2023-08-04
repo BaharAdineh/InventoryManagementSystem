@@ -4,17 +4,16 @@ import com.challenge.ivms.productservice.model.Product;
 import com.challenge.ivms.productservice.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ProductService {
-    private final ProductRepository productRepository;
+public class ProductServiceImpl {
 
     @Autowired
-    public ProductService(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-    }
+    ProductRepository productRepository;
+
 
     public List<Product> getAllProducts() {
         return productRepository.findAll();
