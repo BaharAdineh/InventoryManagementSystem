@@ -1,7 +1,7 @@
 package com.challenge.ivms.orderservice.controller;
 
 import com.challenge.ivms.orderservice.model.Order;
-import com.challenge.ivms.orderservice.service.OrderService;
+import com.challenge.ivms.orderservice.service.OrderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ import java.util.Optional;
 @RequestMapping("/orders")
 public class OrderController {
     @Autowired
-    private OrderService orderService;
+    private OrderServiceImpl orderService;
 
     @PostMapping
     public ResponseEntity<Order> createOrder(@RequestParam("productId") String productId, @RequestParam("userId") String userId) {
