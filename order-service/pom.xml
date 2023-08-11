@@ -14,6 +14,16 @@
     <description>order-service</description>
     <dependencies>
         <dependency>
+            <groupId>com.challenge.ivms</groupId>
+            <artifactId>user-service</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.challenge.ivms</groupId>
+            <artifactId>product-service</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>

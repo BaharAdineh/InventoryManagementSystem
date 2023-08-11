@@ -1,19 +1,17 @@
 package com.challenge.ivms.orderservice.orderCreation;
 
-package com.challenge.ivms.orderservice.service;
-
 import com.challenge.ivms.orderservice.model.Order;
 import com.challenge.ivms.orderservice.repository.OrderRepository;
-import com.challenge.ivms.orderservice.service.UserService;
-import com.challenge.ivms.orderservice.service.ProductService;
+import com.challenge.ivms.userservice.UserService;
+import com.challenge.ivms.productservice.ProductService;
+import com.challenge.ivms.userservice.model.User;
+import com.challenge.ivms.productservice.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-//Order Creation: Implement an endpoint to create new orders.
-//This could involve receiving customer information, selected products, and quantities.
 @Service
 public class OrderServiceImpl {
 
