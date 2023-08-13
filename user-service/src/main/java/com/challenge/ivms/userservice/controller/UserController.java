@@ -1,9 +1,13 @@
 package com.challenge.ivms.userservice.controller;
 
-
-import com.challenge.ivms.userservice.UserService;
+import com.challenge.ivms.userservice.model.User;
+import com.challenge.ivms.userservice.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/users")
@@ -16,7 +20,7 @@ public class UserController {
         this.userService = userService;
     }
 
-  /*  @GetMapping
+   @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.getAllUsers();
         return ResponseEntity.ok(users);
@@ -46,6 +50,6 @@ public class UserController {
     public ResponseEntity<Void> deleteUser(@PathVariable String id) {
         userService.deleteUserById(id);
         return ResponseEntity.noContent().build();
-    }*/
+    }
 }
 
