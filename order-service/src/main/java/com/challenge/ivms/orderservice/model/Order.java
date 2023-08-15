@@ -1,5 +1,7 @@
 package com.challenge.ivms.orderservice.model;
 
+import com.challenge.ivms.productservice.model.Product;
+import com.challenge.ivms.userservice.model.User;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,5 +13,7 @@ public class Order {
     private String id;
     private String productId;
     private String userId;
-    // Additional fields and methods as needed
+	private Product product;
+	private User user;
+
 }
