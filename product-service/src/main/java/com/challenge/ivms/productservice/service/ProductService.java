@@ -8,13 +8,12 @@ import java.util.Optional;
 
 @Service
 public interface ProductService {
+
     List<Product> getAllProducts();
 
-    Product createProduct(Product product);
-
-    Product updateProduct(String id, Product product) ;
-
-    void deleteProduct(String id);
-
     Optional<Product> getProductById(String productId);
+    Product createProduct(Product product);
+    Product updateProduct(Product product);
+    void deleteProductById(String productId);
+
 }

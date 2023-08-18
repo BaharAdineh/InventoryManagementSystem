@@ -1,7 +1,7 @@
 package com.challenge.ivms.productservice.controller;
 
+import com.challenge.ivms.productservice.service.ProductService;
 import com.challenge.ivms.productservice.model.Product;
-import com.challenge.ivms.productservice.service.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,32 +15,32 @@ import java.util.Optional;
 public class ProductController {
 
     @Autowired
-    ProductServiceImpl productServiceImpl;
+    ProductService productService;
 
     @GetMapping
     public ResponseEntity<List<Product>> getAllProducts() {
-        List<Product> products = productServiceImpl.getAllProducts();
+        List<Product> products = productService.getAllProducts();
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable String id) {
-        Optional<Product> product = productServiceImpl.getProductById(id);
+        Optional<Product> product = productService.getProductById(id);
         return product.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
-        Product createdProduct = productServiceImpl.createProduct(product);
+        Product createdProduct = productService.createProduct(product);
         return new ResponseEntity<>(createdProduct, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Product> updateProduct(@PathVariable String id, @RequestBody Product product) {
-        Optional<Product> updatedProduct = productServiceImpl.getProductById(id);
+        Optional<Product> updatedProduct = productService.getProductById(id);
         if (updatedProduct.isPresent()) {
-            Product savedProduct = productServiceImpl.updateProduct(id, product);
+            Product savedProduct = productService.updateProduct(product);
             return new ResponseEntity<>(savedProduct, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -49,9 +49,9 @@ public class ProductController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable String id) {
-        Optional<Product> product = productServiceImpl.getProductById(id);
+        Optional<Product> product = productService.getProductById(id);
         if (product.isPresent()) {
-            productServiceImpl.deleteProduct(id);
+            productService.deleteProductById(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

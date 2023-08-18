@@ -1,7 +1,7 @@
 package com.challenge.ivms.userservice.controller;
 
 import com.challenge.ivms.userservice.model.User;
-import com.challenge.ivms.userservice.services.UserService;
+import com.challenge.ivms.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

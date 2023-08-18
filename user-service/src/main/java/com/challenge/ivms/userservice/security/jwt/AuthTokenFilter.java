@@ -3,7 +3,7 @@ package com.challenge.ivms.userservice.security.jwt;
 
 import java.io.IOException;
 
-import com.challenge.ivms.userservice.services.UserDetailsServiceImpl;
+import com.challenge.ivms.userservice.service.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

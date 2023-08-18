@@ -1,4 +1,4 @@
-package com.challenge.ivms.userservice.services;
+package com.challenge.ivms.userservice.service;
 
 import java.util.Collection;
 import java.util.List;

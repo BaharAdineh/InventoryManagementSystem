@@ -3,7 +3,7 @@ package com.challenge.ivms.userservice.security;
 
 import com.challenge.ivms.userservice.security.jwt.AuthEntryPointJwt;
 import com.challenge.ivms.userservice.security.jwt.AuthTokenFilter;
-import com.challenge.ivms.userservice.services.UserDetailsServiceImpl;
+import com.challenge.ivms.userservice.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
