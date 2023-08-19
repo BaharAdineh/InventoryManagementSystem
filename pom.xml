@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.challenge</groupId>
     <artifactId>InventoryManagementSystem-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>InventoryManagementSystem-parent</name>
     <packaging>pom</packaging>
     <description>InventoryManagementSystem-parent</description>

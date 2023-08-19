@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>com.challenge</groupId>
 		<artifactId>InventoryManagementSystem-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0.0</version>
 	</parent>
 	<groupId>com.challenge.ivms</groupId>
-	<packaging>jar</packaging>
 	<artifactId>product-service</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
 	<name>product-service</name>
 	<description>product-service</description>
-	<version>0.0.1-SNAPSHOT</version>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

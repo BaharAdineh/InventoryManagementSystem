@@ -2,10 +2,10 @@ package com.challenge.ivms.orderservice.orderCreation;
 
 import com.challenge.ivms.orderservice.model.Order;
 import com.challenge.ivms.orderservice.repository.OrderRepository;
-import com.challenge.ivms.userservice.model.User;
 import com.challenge.ivms.productservice.model.Product;
-import com.challenge.ivms.userservice.service.UserService;
 import com.challenge.ivms.productservice.service.ProductService;
+import com.challenge.ivms.userservice.model.User;
+import com.challenge.ivms.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

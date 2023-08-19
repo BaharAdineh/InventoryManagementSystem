@@ -5,14 +5,14 @@
     <parent>
         <groupId>com.challenge</groupId>
         <artifactId>InventoryManagementSystem-parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
     <groupId>com.challenge.ivms</groupId>
     <packaging>jar</packaging>
     <artifactId>user-service</artifactId>
     <name>user-service</name>
     <description>user-service</description>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <dependencies>
 
         <dependency>

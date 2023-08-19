@@ -1,5 +1,6 @@
 package com.challenge.ivms.orderservice.model;
 
+
 import com.challenge.ivms.productservice.model.Product;
 import com.challenge.ivms.userservice.model.User;
 import lombok.Data;
@@ -13,7 +14,7 @@ public class Order {
     private String id;
     private String productId;
     private String userId;
-	private Product product;
-	private User user;
+    private Product product;
+    private User user;
 
 }
