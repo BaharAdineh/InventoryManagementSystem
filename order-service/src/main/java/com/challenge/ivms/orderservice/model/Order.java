@@ -1,6 +1,5 @@
 package com.challenge.ivms.orderservice.model;
 
-
 import com.challenge.ivms.productservice.model.Product;
 import com.challenge.ivms.userservice.model.User;
 import lombok.Data;
