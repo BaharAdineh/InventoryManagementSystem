@@ -8,5 +8,5 @@ spring:
 ivms:
   app:
     jwtCookieName: ivms
-    jwtSecret: "======================ivms=Spring==========================="
+    jwtSecret: "ivms-secret-key"
     jwtExpirationMs: 86400000
