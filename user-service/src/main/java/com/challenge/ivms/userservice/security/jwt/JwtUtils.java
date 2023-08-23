@@ -23,6 +23,7 @@ import io.jsonwebtoken.security.Keys;
 public class JwtUtils {
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
+    //todo: fix the error even with decode jwtSecret
     @Value("${ivms.app.jwtSecret}")
     private String jwtSecret;
 
