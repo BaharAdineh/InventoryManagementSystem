@@ -9,9 +9,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+//import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+//import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,11 +22,14 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 
+
 @Configuration
+//@EnableWebSecurity
 @EnableMethodSecurity
-public class WebSecurityConfig {
-
-
+//(securedEnabled = true,
+//jsr250Enabled = true,
+//prePostEnabled = true) // by default
+public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
     @Autowired
     UserDetailsServiceImpl userDetailsService;
 
@@ -34,6 +40,11 @@ public class WebSecurityConfig {
     public AuthTokenFilter authenticationJwtTokenFilter() {
         return new AuthTokenFilter();
     }
+
+//  @Override
+//  public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+//    authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+//  }
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
@@ -68,11 +79,7 @@ public class WebSecurityConfig {
 //      .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 //      .authorizeRequests().antMatchers("/api/auth/**").permitAll()
 //      .antMatchers("/api/test/**").permitAll()
-//      .antMatchers(h2ConsolePath + "/**").permitAll()
 //      .anyRequest().authenticated();
-//
-//    // fix H2 database console: Refused to display ' in a frame because it set 'X-Frame-Options' to 'deny'
-//    http.headers().frameOptions().sameOrigin();
 //
 //    http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 //  }
@@ -85,12 +92,8 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers("/api/auth/**").permitAll()
                                 .requestMatchers("/api/test/**").permitAll()
-                                .requestMatchers("/api/roles").permitAll()
                                 .anyRequest().authenticated()
                 );
-
-        // fix H2 database console: Refused to display ' in a frame because it set 'X-Frame-Options' to 'deny'
-        http.headers(headers -> headers.frameOptions(frameOption -> frameOption.sameOrigin()));
 
         http.authenticationProvider(authenticationProvider());
 

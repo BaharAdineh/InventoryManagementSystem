@@ -7,6 +7,6 @@ spring:
 
 ivms:
   app:
-    jwtCookieName: ivms
-    jwtSecret: "ivms-secret-key"
-    jwtExpirationMs: 86400000
+    jwtSecret: "CXTEfksQdSDUo9beScR1On+ysewzcl+xafurP0bBAS3xv34twbOICesXTGDw6qvLzaPuS+2hJCKyoDQ6cWllvA=="
+    jwtExpirationMs: 86400000 # JWT expiration time in milliseconds (24 hours)
+    jwtCookieName: "ivms-jwt-cookie-name"
