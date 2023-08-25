@@ -30,6 +30,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 //jsr250Enabled = true,
 //prePostEnabled = true) // by default
 public class WebSecurityConfig { // extends WebSecurityConfigurerAdapter {
+    // todo: fix the error even with decode jwtSecret
     @Autowired
     UserDetailsServiceImpl userDetailsService;
 
