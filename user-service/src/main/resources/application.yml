@@ -7,6 +7,11 @@ spring:
 
 ivms:
   app:
-    jwtSecret: "CXTEfksQdSDUo9beScR1On+ysewzcl+xafurP0bBAS3xv34twbOICesXTGDw6qvLzaPuS+2hJCKyoDQ6cWllvA=="
-    jwtExpirationMs: 86400000 # JWT expiration time in milliseconds (24 hours)
-    jwtCookieName: "ivms-jwt-cookie-name"
+    jwt:
+      clientId: glee-o-meter
+      client-secret: secret
+      accessTokenValidititySeconds: 120
+      refreshTokenValiditySeconds: 1000
+rsa:
+  private-key: classpath:certs/private.pem
+  public-key: classpath:certs/public.pem
