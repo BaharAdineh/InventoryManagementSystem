@@ -5,11 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "com.challenge.ivms")
-public class OrderService {
+public class OrderServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(OrderService.class, args);
+        SpringApplication.run(OrderServiceApplication.class, args);
     }
 
 }
