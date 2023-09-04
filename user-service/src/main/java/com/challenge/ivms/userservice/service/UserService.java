@@ -1,7 +1,6 @@
 package com.challenge.ivms.userservice.service;
 
 import com.challenge.ivms.userservice.model.User;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
